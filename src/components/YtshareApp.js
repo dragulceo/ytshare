@@ -25,7 +25,6 @@ var YtshareApp = React.createClass({
   },
   render: function() {
     var list = '';
-    console.log(this.state);
     if(this.state.data) {
       list = this.state.data.map((item) => {
         return (
