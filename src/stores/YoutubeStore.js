@@ -1,17 +1,17 @@
 var alt = require('../alt');
 var Firebase = require('firebase');
+var FirebaseActions = require('../actions/FirebaseActionCreators');
 
 class YoutubeStore {
   initFirebase(url) {
     "use strict";
-    //this.bindActions(FirebaseActions);
+    this.bindActions(FirebaseActions);
 
     var firebase = new Firebase(url);
     firebase.on('value', function (dataSnapshot) {
       this.data = dataSnapshot.val();
-      //TODO find a replacement for this
-      console.log(this.data);
-      //FirebaseActions.update();
+      //TODO check ohter methods to do this
+      FirebaseActions.update();
     }.bind(this), function () {
       console.log('StudentStore cancelCallback');
     });
