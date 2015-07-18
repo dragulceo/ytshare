@@ -8,4 +8,4 @@ class FirebaseActionCreators {
   }
 }
 
-export default alt.createActions(FirebaseActionCreators); 
+export default alt.createActions(FirebaseActionCreators);

@@ -16,15 +16,16 @@ class YoutubeStore {
     });
     return firebase;
   }
+
   onUpdate() {
     console.log('Firebase updated');
   }
+
   constructor() {
-    this.bindListeners({
-    });
+    this.bindListeners({});
 
     this.initFirebase('https://ytshare.firebaseio.com/demo1');
   }
-} 
+}
 
-export default alt.createStore(YoutubeStore, 'YoutubeStore'); 
+export default alt.createStore(YoutubeStore, 'YoutubeStore');

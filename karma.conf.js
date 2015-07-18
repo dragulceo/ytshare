@@ -7,10 +7,12 @@ module.exports = function (config) {
     basePath: '',
     frameworks: ['jasmine'],
     files: [
-      'test/helpers/**/*.js',
+      'test/helpers/pack/**/*.js',
+      'test/helpers/react/**/*.js',
       'test/spec/components/**/*.js'
     ],
     preprocessors: {
+      'test/helpers/createComponent.js': ['webpack'],
       'test/spec/components/**/*.js': ['webpack'],
       'test/spec/components/**/*.jsx': ['webpack']
     },
@@ -28,7 +30,8 @@ module.exports = function (config) {
           loader: 'url-loader?limit=10000&mimetype=image/png'
         }, {
           test: /\.(js|jsx)$/,
-          loader: 'babel-loader'
+          loader: 'babel-loader',
+          exclude: /node_modules/
         }, {
           test: /\.less/,
           loader: 'style-loader!css-loader!less-loader'
@@ -46,11 +49,13 @@ module.exports = function (config) {
       resolve: {
         alias: {
           'styles': path.join(process.cwd(), './src/styles/'),
-          'components': path.join(process.cwd(), './src/components/')
+          'components': path.join(process.cwd(), './src/components/'),
+          'helpers': path.join(process.cwd(), './test/helpers/')
         }
       }
     },
-    webpackServer: {
+    webpackMiddleware: {
+      noInfo: true,
       stats: {
         colors: true
       }
@@ -60,17 +65,14 @@ module.exports = function (config) {
     logLevel: config.LOG_INFO,
     colors: true,
     autoWatch: false,
-    // Start these browsers, currently available:
-    // - Chrome
-    // - ChromeCanary
-    // - Firefox
-    // - Opera
-    // - Safari (only Mac)
-    // - PhantomJS
-    // - IE (only Windows)
     browsers: ['PhantomJS'],
-    reporters: ['progress'],
+    reporters: ['dots'],
     captureTimeout: 60000,
-    singleRun: true
+    singleRun: true,
+    plugins: [
+        require('karma-webpack'),
+        require('karma-jasmine'),
+        require('karma-phantomjs-launcher')
+    ]
   });
 };
