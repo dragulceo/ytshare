@@ -10,10 +10,11 @@
   "mainInput": "main",
   "mainOutput": "main",
   "dependencies": {
-    "react-router": "^0.11.6",
-    "alt": "^0.16.5", 
+    "alt": "^0.16.5",
+    "firebase": "^2.2.7",
+    "normalize.css": "~3.0.3",
     "react": "~0.12.2",
-    "normalize.css": "~3.0.3"
+    "react-router": "^0.11.6"
   },
   "devDependencies": {
     "grunt": "~0.4.5",
