@@ -12,12 +12,14 @@ class YoutubeStore {
       //TODO check ohter methods to do this
       FirebaseActions.update();
     }.bind(this), function () {
+      /*eslint-disable no-console */
       console.log('StudentStore cancelCallback');
     });
     return firebase;
   }
 
   onUpdate() {
+    /*eslint-disable no-console */
     console.log('Firebase updated');
   }
 
