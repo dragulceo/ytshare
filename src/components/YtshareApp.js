@@ -11,12 +11,33 @@ require('../styles/main.css');
 var imageURL = require('../images/yeoman.png');
 
 var YtshareApp = React.createClass({
+  getInitialState() {
+    return YoutubeStore.getState();
+  },
+  componentDidMount() {
+    YoutubeStore.listen(this._onChange);
+  },
+  componentWillUnmount() {
+    YoutubeStore.unlisten(this._onChange);
+  },
+  _onChange() {
+    this.setState(YoutubeStore.getState());
+  },
   render: function() {
-    YoutubeStore.getState();
+    var list = '';
+    console.log(this.state);
+    if(this.state.data) {
+      list = this.state.data.map((item) => {
+        return (
+          <li><a href={item}>{item}</a></li>
+        );
+      });
+    }
     return (
       <div className='main'>
         <ReactTransitionGroup transitionName="fade">
           <img src={imageURL} />
+          {list}
         </ReactTransitionGroup>
       </div>
     );
