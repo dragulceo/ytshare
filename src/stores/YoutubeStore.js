@@ -4,7 +4,6 @@ var FirebaseActions = require('../actions/FirebaseActionCreators');
 
 class YoutubeStore {
   initFirebase(url) {
-    "use strict";
     this.bindActions(FirebaseActions);
 
     var firebase = new Firebase(url);
@@ -18,7 +17,6 @@ class YoutubeStore {
     return firebase;
   }
   onUpdate() {
-    "use strict";
     console.log('Firebase updated');
   }
   constructor() {
