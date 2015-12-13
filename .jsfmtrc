@@ -1,0 +1,36 @@
+{
+    // autoformat on save
+    "autoformat": false,
+
+    // array of extensions for autoformat
+    "extensions": ["js", "sublime-settings"],
+
+    // options for jsfmt
+    "options": {
+        "preset": "jquery",
+        "indent": {
+            "value": "  "
+        },
+        // plugins included
+        "plugins": [
+            "esformatter-quotes",
+            "esformatter-semicolons",
+            "esformatter-braces",
+            "esformatter-dot-notation",
+            "esformatter-jsx"
+        ]
+    },
+    "options-JSON": {
+        "plugins": [
+            "esformatter-quotes"
+        ],
+        "quotes": {
+            "type": "double"
+        }
+    },
+    "alert-errors": true,
+    // path to nodejs
+    "node-path": "node",
+    // if true it will format the whole file even if you have a selection active
+    "ignore-selection": false
+}

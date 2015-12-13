@@ -1,4 +1,4 @@
-var alt = require('../alt');
+import alt from 'components/Dispatcher';
 
 class FirebaseActionCreators {
   constructor() {

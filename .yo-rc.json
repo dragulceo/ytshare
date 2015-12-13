@@ -3,6 +3,9 @@
     "app-name": "ytshare",
     "architecture": "alt",
     "styles-language": "less",
-    "component-suffix": "js"
+    "component-suffix": "js",
+    "appName": "ytshare",
+    "style": "less",
+    "postcss": false
   }
 }

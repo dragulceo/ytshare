@@ -1,18 +1,24 @@
-'use strict';
+require('normalize.css');
+require('styles/App.css');
 
-var YtshareApp = require('./YtshareApp');
-var React = require('react');
-var Router = require('react-router');
-var Route = Router.Route;
+import React from 'react';
+import { Router, Route } from 'react-router'
+import YtshareApp from './YtshareApp'
 
-var content = document.getElementById('content');
+// let yeomanImage = require('../images/yeoman.png');
 
-var Routes = (
-  <Route handler={YtshareApp}>
-    <Route name="/" handler={YtshareApp}/>
-  </Route>
-);
+class AppComponent extends React.Component {
+  render() {
+    return (
+      <Router>
+	    <Route path="/" component={YtshareApp}>
+	    </Route>
+	  </Router>
+    );
+  }
+}
 
-Router.run(Routes, function (Handler) {
-  React.render(<Handler/>, content);
-});
+AppComponent.defaultProps = {
+};
+
+export default AppComponent;
