@@ -63,6 +63,7 @@
   },
   "dependencies": {
     "alt": "^0.18.1",
+    "bootstrap": "^3.3.6",
     "core-js": "^1.2.6",
     "firebase": "^2.3.2",
     "lodash": "^3.10.1",
