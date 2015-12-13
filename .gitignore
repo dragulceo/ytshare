@@ -1,6 +1,10 @@
 # Logs
 logs
 *.log
+### SublimeText ###
+*.sublime-workspace
+### Idea ###
+.idea
 
 # Runtime data
 pids
