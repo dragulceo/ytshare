@@ -8,9 +8,8 @@ class YoutubeSearchComponent extends React.Component {
   render() {
     return (
       <div className="youtubesearch-component">
-  		<input type="text" name="q"/>
-  		<button>Search</button>
-  		<YoutubeResults />
+        <input type="text" name="q" ref="q"/>
+        <button onClick={() => this.props.onClickHandler(this.refs.q.value)}>Search</button>
       </div>
       );
   }
@@ -19,7 +18,9 @@ class YoutubeSearchComponent extends React.Component {
 YoutubeSearchComponent.displayName = 'YoutubeSearchComponent';
 
 // Uncomment properties you need
-// YoutubeSearchComponent.propTypes = {};
+YoutubeSearchComponent.propTypes = {
+  onClickHandler: React.PropTypes.func.isRequired
+};
 // YoutubeSearchComponent.defaultProps = {};
 
 export default YoutubeSearchComponent;

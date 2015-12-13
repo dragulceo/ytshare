@@ -25,9 +25,9 @@ class YtshareApp extends React.Component {
     this.setState(YtShareStore.getState());
   }
   /*eslint-disable no-unused-vars */
-  _onItemClick(url) {
+  _onItemClick(videoId) {
     var state = this.state;
-    state.activeUrl = url;
+    state.activeVideoId = videoId;
     this.setState(state);
   }
   _getHandler(id) {
@@ -36,22 +36,26 @@ class YtshareApp extends React.Component {
   }
   render() {
     var list = '';
-    var url = '';
+    var videoId = '';
     var onItemClick = this._onItemClick;
     var getHandler = this._getHandler.bind(this);
     var player;
     if (this.state) {
       if (this.state.data) {
-        list = this.state.data.map((item, i) => {
-          return (
-            <li key={i}><a onClick={getHandler(item)} href="#">{item}</a></li>
-            );
-        });
+        list = [];
+        for(
+        let key
+ of Object.keys(this.state.data)) {
+        let value = this.state.data[key];
+        list.push(
+          <li key={key}><a onClick={getHandler(value)} href="#">{value} <img src={"https://i.ytimg.com/vi/" + value + "/default.jpg"}/></a></li>
+        );
+        }
       }
-      if (this.state.activeUrl) {
-        url = this.state.activeUrl;
+      if (this.state.activeVideoId) {
+        videoId = this.state.activeVideoId;
         player = (
-          <YoutubePlayer url={url}/>
+          <YoutubePlayer videoId={videoId}/>
         );
       }
     }

@@ -2,6 +2,8 @@ import alt from 'components/Dispatcher';
 import Firebase from 'firebase';
 import FirebaseActions from 'actions/FirebaseActionCreators'
 
+let firebase;
+
 export class YtShareStore {
   initFirebase(url) {
     this.bindActions(FirebaseActions);
@@ -22,10 +24,15 @@ export class YtShareStore {
     /*eslint-disable no-console */
     console.log('Firebase updated');
   }
+  onAdd(videoId) {
+    // firebase.
+    console.log(arguments);
+    setTimeout(() => firebase.push(videoId), 0);
+  }
   constructor() {
     this.bindListeners({});
 
-    this.initFirebase('https://ytshare.firebaseio.com/demo1');
+    firebase = this.initFirebase('https://ytshare.firebaseio.com/demo1');
   }
 }
 

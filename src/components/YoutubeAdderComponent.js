@@ -1,14 +1,42 @@
 'use strict';
 
 import React from 'react';
+import YoutubeSearch from 'components/YoutubeSearchComponent';
+import YoutubeSearchResults from 'components/YoutubeSearchResultsComponent';
+import YoutubeStore from 'stores/YoutubeStore';
+import YoutubeActions from 'actions/YoutubeActions';
+import FirebaseActions from 'actions/FirebaseActionCreators';
 
 require('styles//YoutubeAdder.less');
 
 class YoutubeAdderComponent extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      data: []
+    };
+    this._onChange = this._onChange.bind(this);
+  }
+  componentDidMount() {
+    YoutubeStore.listen(this._onChange);
+  }
+  componentWillUnmount() {
+    YoutubeStore.unlisten(this._onChange);
+  }
+  _onChange() {
+    this.setState(YoutubeStore.getState());
+  }
+  onSearchButtonPressed(q) {
+    YoutubeActions.search(q);
+  }
+  onResultItemClicked(videoId) {
+    FirebaseActions.add(videoId);
+  }
   render() {
     return (
       <div className="youtubeadder-component">
-        Please edit src/components///YoutubeAdderComponent.js to update this component!
+        <YoutubeSearch onClickHandler={this.onSearchButtonPressed} />
+        <YoutubeSearchResults data={this.state.data || []} onClickHandler={this.onResultItemClicked} />
       </div>
       );
   }

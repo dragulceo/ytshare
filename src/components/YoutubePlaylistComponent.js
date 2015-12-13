@@ -10,7 +10,7 @@ class YoutubePlaylistComponent extends React.Component {
       <div className="youtubeplaylist-component">
         Please edit src/components///YoutubePlaylistComponent.js to update this component!
       </div>
-    );
+      );
   }
 }
 

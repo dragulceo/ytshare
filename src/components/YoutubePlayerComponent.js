@@ -15,10 +15,9 @@ class YoutubePlayerComponent extends React.Component {
     }
   }
   render() {
-    let videoId = this.props.url.replace(/.*v=([a-zA-Z0-9]*)(&.*$|$)/g, '$1');
     return (
       <div className="youtubeplayer-component">
-          <Youtube url={this.props.url} videoId={videoId} opts={this.playerOpts}/>
+          <Youtube videoId={this.props.videoId} opts={this.playerOpts}/>
         </div>
       );
   }
@@ -28,7 +27,7 @@ YoutubePlayerComponent.displayName = 'YoutubePlayerComponent';
 
 // Uncomment properties you need
 YoutubePlayerComponent.propTypes = {
-  url: React.PropTypes.string
+  videoId: React.PropTypes.string
 };
 // YoutubePlayerComponent.defaultProps = {};
 
