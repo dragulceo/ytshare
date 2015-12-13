@@ -8,13 +8,14 @@ require('styles//YoutubeSearchResults.less');
 class YoutubeSearchResultsComponent extends React.Component {
   render() {
     const items = (this.props.data || []).map((item) => (
-    <li key={item.id.videoId}><YoutubeSearchResultItem item={item} onClickHandler={this.props.onClickHandler} /></li>
+    <YoutubeSearchResultItem key={item.id.videoId} item={item} onClickHandler={this.props.onClickHandler} />
     ));
     return (
       <div className="youtubesearchresults-component">
-      <ul>
-      {items}
-      </ul>
+      <h3>Results</h3>
+        <div className="list-group">
+        {items}
+        </div>
       </div>
       );
   }

@@ -8,8 +8,12 @@ class YoutubeSearchComponent extends React.Component {
   render() {
     return (
       <div className="youtubesearch-component">
-        <input type="text" name="q" ref="q"/>
-        <button onClick={() => this.props.onClickHandler(this.refs.q.value)}>Search</button>
+        <form className="form-inline">
+          <div className="form-group">
+            <input className="form-control" type="text" name="q" ref="q"/>
+          </div>
+          <button className="btn btn-success" onClick={() => this.props.onClickHandler(this.refs.q.value)}>Search</button>
+        </form>
       </div>
       );
   }

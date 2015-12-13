@@ -17,8 +17,8 @@ class YoutubePlayerComponent extends React.Component {
   render() {
     return (
       <div className="youtubeplayer-component">
-          <Youtube videoId={this.props.videoId} opts={this.playerOpts}/>
-        </div>
+        <Youtube videoId={this.props.videoId} opts={this.playerOpts}/>
+      </div>
       );
   }
 }

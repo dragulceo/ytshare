@@ -24,7 +24,6 @@ class YtshareApp extends React.Component {
   _onChange() {
     this.setState(YtShareStore.getState());
   }
-  /*eslint-disable no-unused-vars */
   _onItemClick(videoId) {
     var state = this.state;
     state.activeVideoId = videoId;
@@ -35,20 +34,27 @@ class YtshareApp extends React.Component {
     return () => onClick(id);
   }
   render() {
-    var list = '';
-    var videoId = '';
-    var onItemClick = this._onItemClick;
-    var getHandler = this._getHandler.bind(this);
-    var player;
+    let list = '';
+    let videoId = '';
+    const getHandler = this._getHandler.bind(this);
+    let player;
     if (this.state) {
       if (this.state.data) {
         list = [];
         for(
         let key
- of Object.keys(this.state.data)) {
+
+
+
+
+
+
+
+
+        of Object.keys(this.state.data)) {
         let value = this.state.data[key];
         list.push(
-          <li key={key}><a onClick={getHandler(value)} href="#">{value} <img src={"https://i.ytimg.com/vi/" + value + "/default.jpg"}/></a></li>
+          <a className="list-group-item" key={key} onClick={getHandler(value)} href="#"><img className="img-rounded" src={'https://i.ytimg.com/vi/' + value + '/default.jpg'}/><br/>{value}</a>
         );
         }
       }
@@ -60,10 +66,20 @@ class YtshareApp extends React.Component {
       }
     }
     return (
-      <div className='main'>
-          {player}
-          {list}
-          <YoutubeAdder />
+      <div className='main container'>
+        <h1>Youtube social playlists</h1>
+        <p>Sharable playlists</p>
+        <div className="row">
+          <div className="col-md-8">
+            {player}
+            <YoutubeAdder />
+          </div>
+          <div className="col-md-4">
+            <div className="list-group">
+            {list}
+            </div>
+          </div>
+        </div>
       </div>
       );
   }

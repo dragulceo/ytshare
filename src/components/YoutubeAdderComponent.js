@@ -35,6 +35,7 @@ class YoutubeAdderComponent extends React.Component {
   render() {
     return (
       <div className="youtubeadder-component">
+        <h2>Add new videos</h2>
         <YoutubeSearch onClickHandler={this.onSearchButtonPressed} />
         <YoutubeSearchResults data={this.state.data || []} onClickHandler={this.onResultItemClicked} />
       </div>
