@@ -44,19 +44,13 @@ class YtshareApp extends React.Component {
         for(
         let key
 
-
-
-
-
-
-
-
         of Object.keys(this.state.data)) {
         let value = this.state.data[key];
         list.push(
           <a className="list-group-item" key={key} onClick={getHandler(value)} href="#"><img className="img-rounded" src={'https://i.ytimg.com/vi/' + value + '/default.jpg'}/><br/>{value}</a>
         );
         }
+        list.reverse();
       }
       if (this.state.activeVideoId) {
         videoId = this.state.activeVideoId;
