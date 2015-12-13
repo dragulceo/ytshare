@@ -26,10 +26,12 @@ class YoutubeAdderComponent extends React.Component {
   _onChange() {
     this.setState(YoutubeStore.getState());
   }
-  onSearchButtonPressed(q) {
+  onSearchButtonPressed(e, q) {
+    e.preventDefault();
     YoutubeActions.search(q);
   }
-  onResultItemClicked(videoId) {
+  onResultItemClicked(e, videoId) {
+    e.preventDefault();
     FirebaseActions.add(videoId);
   }
   render() {
