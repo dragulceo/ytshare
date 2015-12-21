@@ -66,11 +66,13 @@
     "bootstrap": "^3.3.6",
     "core-js": "^1.2.6",
     "firebase": "^2.3.2",
+    "history": "^1.13.1",
     "lodash": "^3.10.1",
     "normalize.css": "^3.0.3",
     "react": "^0.14.0",
     "react-addons-test-utils": "^0.14.0",
     "react-dom": "^0.14.0",
+    "react-router": "^1.0.2",
     "react-youtube": "^5.0.0"
   }
 }
